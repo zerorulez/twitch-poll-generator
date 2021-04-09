@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Twitch Poll Generator</h1>
+    <h2>Twitch Poll Generator</h2>
     <form @submit.prevent="connect()">
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -11,7 +11,7 @@
       <p>Replys</p>
       <div class="form-row">
         <div class="form-group col-md-12" v-for="(reply, index) in poll.replys" :key="index">
-          <input type="text" class="form-control" v-model="poll.replys[index]" :id="'reply' + index" :placeholder="'Reply ' + (index + 1)" required :disabled="connected">
+          <input type="text" class="form-control" v-model="poll.replys[index]" :id="'reply' + index" :placeholder="'Reply ' + (index + 1)" :disabled="connected" v-on:keyup="inputChanged(index)">
         </div>
       </div>
       <button type="submit" class="btn" :class="{'btn-primary': !connected, 'btn-danger': connected}">{{ !connected ? 'Connect' : 'Disconnect' }}</button>
@@ -38,10 +38,20 @@ export default {
     }
   },
   methods: {
-    connect() {
-      (async () => {
-        this.connected = await ipcRenderer.invoke('connect', this.poll)
-      })();
+    async connect() {
+      const filtered = this.poll.replys.filter(function (el) {
+        return el != '';
+      });
+
+      this.poll.replys = filtered
+
+      this.connected = await ipcRenderer.invoke('connect', this.poll)
+    },
+    inputChanged(index) {
+      let length = this.poll.replys.length - 1
+      if (index == length) {
+        this.poll.replys.push('')
+      }
     }
   }
 }
