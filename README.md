@@ -5,7 +5,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
 
-To change the theme, look for the Twitch Poll Generator Theme repository
+To change the theme, look for the Twitch Poll Generator Theme repository, you can replace the files on the theme folder on root.
 
 ## Installation
 
@@ -24,8 +24,6 @@ Build application
 ```sh
 npm run electron:build
 ```
-
-Now just copy the content of the theme dist folder to the twitch-poll-generator/dist_electron/theme and replace the files.
 
 ## Meta
 

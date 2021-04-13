@@ -5,7 +5,8 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const { ipcMain } = require('electron')
-const tmi = require('./tmi');
+const tmi = require('./tmi')
+const path = require('path')
 
 const express = require('express');
 const appExpress = express();
@@ -20,10 +21,10 @@ const io = require('socket.io')(server,{
   }
 });
 
-appExpress.use(express.static(__dirname + '/theme'));
+appExpress.use(express.static(path.join(__dirname, '../theme')));
 
 appExpress.get('/', (req, res) => {
-  res.sendFile(__dirname + '/theme/index.html');
+  res.sendFile(path.join(__dirname, '../theme/index.html'));
 });
 
 io.on('connection', (socket) => {
