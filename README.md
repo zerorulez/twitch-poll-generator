@@ -1,24 +1,47 @@
-# twitch-poll-generator
+# Twitch Poll Generator
+> Electron app to make Polls and stream on real-time 
 
-## Project setup
-```
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Downloads Stats][npm-downloads]][npm-url]
+
+To change the theme, look for the Twitch Poll Generator Theme repository
+
+## Installation
+
+```sh
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Usage example
+
+Start application
+```sh
+npm run electron:serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+Build application
+```sh
+npm run electron:build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Now just copy the content of the theme dist folder to the twitch-poll-generator/dist_electron/theme and replace the files.
+
+## Meta
+
+ZeroRulez – http://zerorulez.github.io/
+
+## Contributing
+
+1. Fork it (<https://github.com/zerorulez/twitch-poll-generator/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[wiki]: https://github.com/seunome/seuprojeto/wiki

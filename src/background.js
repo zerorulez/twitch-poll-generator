@@ -14,7 +14,7 @@ const server = http.createServer(appExpress);
 const io = require('socket.io')(server,{
   allowEIO3: true,
   cors: {
-    origin: "http://localhost:8081",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -112,6 +112,7 @@ global.connected = false
 
 global.poll = {
   channel: '',
+  question: '',
   replys: [],
   users: []
 }
@@ -123,11 +124,13 @@ io.on("connect", () => {
 ipcMain.handle('connect', async (event, poll) => {
   global.poll = {
     channel: '',
+    question: '',
     replys: [],
     users: []
   }
   
   global.poll.channel = poll.channel
+  global.poll.question = poll.question
   global.poll.replys = poll.replys
   global.connected = !global.connected
 
@@ -180,5 +183,10 @@ function getResults() {
     });
   });
 
-  return results
+  let data = {
+    question: global.poll.question,
+    results: results
+  }
+
+  return data
 }

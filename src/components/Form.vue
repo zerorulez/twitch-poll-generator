@@ -8,6 +8,12 @@
           <input type="text" v-model="poll.channel" class="form-control" id="channel" placeholder="Channel" required :disabled="connected">
         </div>
       </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="question">Question</label>
+          <input type="text" v-model="poll.question" class="form-control" id="question" placeholder="Question" required :disabled="connected">
+        </div>
+      </div>
       <p>Replys</p>
       <div class="form-row">
         <div class="form-group col-md-12" v-for="(reply, index) in poll.replys" :key="index">
@@ -29,6 +35,7 @@ export default {
     return {
       poll: {
         channel: '',
+        question: '',
         replys: [
           '',
           ''
