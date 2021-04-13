@@ -25,6 +25,8 @@ Build application
 npm run electron:build
 ```
 
+To use it on your stream, add the Browser scene with the URL http://localhost:3000
+
 ## Meta
 
 ZeroRulez – http://zerorulez.github.io/

@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h2>Twitch Poll Generator</h2>
+    <small class="d-block pb-3">Add the Browser scene with the URL http://localhost:3000</small>
     <form @submit.prevent="connect()">
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -66,8 +67,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h2 {
+  margin: 0
 }
 ul {
   list-style-type: none;
